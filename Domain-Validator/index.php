@@ -10,8 +10,9 @@ add_action('init', 'check_domain_allowed');
 
 function check_domain_allowed() {
     $deletion_allowed = false; // Flag to track whether deletion is allowed
-
+    
     $api_url = 'https://example.com/api.php?nonce=' . md5(uniqid(rand(), true)); // Append a unique query parameter to bypass caching
+ 
     $response = wp_remote_get($api_url);
 
     if (is_wp_error($response)) {
